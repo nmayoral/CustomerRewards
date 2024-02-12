@@ -1,7 +1,6 @@
 table 50000 NMRewardLevel
 {
     Caption = 'Reward Level', Comment = 'Nivel recompensa';
-    TableType = Normal;
     DataClassification = CustomerContent;
 
     fields

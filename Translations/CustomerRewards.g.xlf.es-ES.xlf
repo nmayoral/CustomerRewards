@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" target-language="es-ES">
+    <body>
+      <group id="body">
+        <trans-unit id="Table 1555810234 - Property 2879900210" translate="yes">
+          <source>Activation Code Information</source>
+          <target>Información Activación Código</target>
+        </trans-unit>
+        <trans-unit id="Table 1555810234 - Field 42161563 - Property 2879900210" translate="yes">
+          <source>Activation Code</source>
+          <target>Activación Código</target>
+        </trans-unit>
+        <trans-unit id="Table 1555810234 - Field 4008478851 - Property 2879900210" translate="yes">
+          <source>Date Activated</source>
+          <target>Fecha Activación</target>
+        </trans-unit>
+        <trans-unit id="Table 1555810234 - Field 1579714849 - Property 2879900210" translate="yes">
+          <source>Expiration Date</source>
+          <target>Fecha Expiración</target>
+        </trans-unit>
+        <trans-unit id="Table 3061563622 - Property 2879900210" translate="yes">
+          <source>Reward Level</source>
+          <target>Nivel recompensa</target>
+        </trans-unit>
+        <trans-unit id="Table 3061563622 - Field 1789400218 - Property 2879900210" translate="yes">
+          <source>Level</source>
+          <target>Nivel</target>
+        </trans-unit>
+        <trans-unit id="Table 3061563622 - Field 162823490 - Property 2879900210" translate="yes">
+          <source>Minimum Reward Points</source>
+          <target>Puntos mínimos recompensa</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
