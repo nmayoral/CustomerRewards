@@ -9,7 +9,7 @@
         </trans-unit>
         <trans-unit id="Table 1555810234 - Field 42161563 - Property 2879900210" translate="yes">
           <source>Activation Code</source>
-          <target>Activación Código</target>
+          <target>Código Activación</target>
         </trans-unit>
         <trans-unit id="Table 1555810234 - Field 4008478851 - Property 2879900210" translate="yes">
           <source>Date Activated</source>
@@ -18,6 +18,18 @@
         <trans-unit id="Table 1555810234 - Field 1579714849 - Property 2879900210" translate="yes">
           <source>Expiration Date</source>
           <target>Fecha Expiración</target>
+        </trans-unit>
+        <trans-unit id="Table 1789856518 - Property 2879900210" translate="yes">
+          <source>Customer Rewards Mgt. Setup</source>
+          <target>Configuración Recompensas Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 1789856518 - Field 3018323583 - Property 2879900210" translate="yes">
+          <source>Customer Rewards Ext. Mgt. Codeunit ID</source>
+          <target>ID Codeunit Recompensas Cliente</target>
+        </trans-unit>
+        <trans-unit id="Table 1789856518 - Field 1663593181 - Property 2879900210" translate="yes">
+          <source>Primary Key</source>
+          <target>Clave Primaria</target>
         </trans-unit>
         <trans-unit id="Table 3061563622 - Property 2879900210" translate="yes">
           <source>Reward Level</source>
@@ -30,6 +42,176 @@
         <trans-unit id="Table 3061563622 - Field 162823490 - Property 2879900210" translate="yes">
           <source>Minimum Reward Points</source>
           <target>Puntos mínimos recompensa</target>
+        </trans-unit>
+        <trans-unit id="Codeunit 949369200 - NamedType 2295508996" translate="yes">
+          <source>NONE</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Property 2879900210" translate="yes">
+          <source>Customer Rewards assisted setup guide</source>
+          <target>Guia instalación asistida Recompensas Cliente</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 368964769 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 3559045584 - Property 2879900210" translate="yes">
+          <source>You're done!</source>
+          <target>¡Lo lograste!</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 3882300021 - Property 1968111052" translate="yes">
+          <source>Click Finish to set up your rewards level and start using Customer Rewards.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 3882300021 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 1966572419 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 3800514526 - Property 2879900210" translate="yes">
+          <source>Welcome</source>
+          <target>Bienvenido</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 203669508 - Property 1968111052" translate="yes">
+          <source>This Customer Rewards extension is a sample extension. It adds rewards tiers support for Customers.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 203669508 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 773332919 - Property 2879900210" translate="yes">
+          <source>Terms of Use</source>
+          <target>Términos de Uso</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 4227742000 - Property 1968111052" translate="yes">
+          <source>By enabling the Customer Rewards extension...</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 4227742000 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 570471321 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 2762510287 - Property 1295455071" translate="yes">
+          <source>Click to confirm: I understand and accept these terms.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 2762510287 - Property 2879900210" translate="yes">
+          <source>I understand and accept these terms.</source>
+          <target>He entendido y acepto estos términos</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 2332231641 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 3276474741 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 245901840 - Property 2879900210" translate="yes">
+          <source>Activation</source>
+          <target>Activación</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 2287255393 - Property 1968111052" translate="yes">
+          <source>Enter your 14 digit activation code to continue</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Control 2287255393 - Property 2879900210" translate="yes">
+          <source>
+          </source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Action 4173880961 - Property 2879900210" translate="yes">
+          <source>Activate</source>
+          <target>Activar</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Action 2438272767 - Property 2879900210" translate="yes">
+          <source>Back</source>
+          <target>Atrás</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Action 3259912055 - Property 2879900210" translate="yes">
+          <source>Finish</source>
+          <target>Finalizar</target>
+        </trans-unit>
+        <trans-unit id="Page 1416043628 - Action 914282563 - Property 2879900210" translate="yes">
+          <source>Next</source>
+          <target>Siguiente</target>
+        </trans-unit>
+        <trans-unit id="Page 2929369557 - Property 2879900210" translate="yes">
+          <source>Rewards Level List</source>
+          <target>Lista Recompensa Niveles</target>
+        </trans-unit>
+        <trans-unit id="Page 2929369557 - NamedType 2504299260" translate="yes">
+          <source>Customer Rewards is not activated</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 2929369557 - Control 1789400218 - Property 1295455071" translate="yes">
+          <source>Specifies the level of reward that the customer has at this point.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="Page 2929369557 - Control 162823490 - Property 1295455071" translate="yes">
+          <source>Specifies the number of points that customers must have to reach this level.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2239430085 - Control 625069603 - Property 1295455071" translate="yes">
+          <source>Specifies the level of reward that the customer has at this point.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2239430085 - Control 625069603 - Property 2879900210" translate="yes">
+          <source>Reward Level</source>
+          <target>Nivel Recompensa</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2239430085 - Control 3873991356 - Property 1295455071" translate="yes">
+          <source>Specifies the total number of points that the customer has at this point.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="PageExtension 2239430085 - Control 3873991356 - Property 2879900210" translate="yes">
+          <source>Reward Points</source>
+          <target>Puntos Recompensa</target>
+        </trans-unit>
+        <trans-unit id="PageExtension 4055226319 - Action 3511348062 - Property 1295455071" translate="yes">
+          <source>Open the list of reward levels.</source>
+          <target>
+          </target>
+        </trans-unit>
+        <trans-unit id="TableExtension 1555159177 - Field 3873991356 - Property 2879900210" translate="yes">
+          <source>Reward Points</source>
+          <target>Puntos Recompensa</target>
         </trans-unit>
       </group>
     </body>
