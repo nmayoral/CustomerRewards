@@ -15,12 +15,12 @@ pageextension 50000 NMCustomerList extends "Customer List"
 
                 trigger OnAction();
                 var
-                    CustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
+                    NMCustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
                 begin
-                    if CustomerRewardsExtMgt.IsCustomerRewardsActivated then
-                        CustomerRewardsExtMgt.OpenRewardsLevelPage
+                    if NMCustomerRewardsExtMgt.NMIsCustomerRewardsActivated then
+                        NMCustomerRewardsExtMgt.NMOpenRewardsLevelPage
                     else
-                        CustomerRewardsExtMgt.OpenCustomerRewardsWizard;
+                        NMCustomerRewardsExtMgt.NMOpenCustomerRewardsWizard;
                 end;
             }
         }

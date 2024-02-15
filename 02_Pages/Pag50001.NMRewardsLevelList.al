@@ -2,7 +2,7 @@ page 50001 NMRewardsLevelList
 {
     PageType = List;
     SourceTable = NMRewardLevel;
-    SourceTableView = sorting("Minimum Reward Points") order(ascending);
+    SourceTableView = sorting(NMMinimumRewardPoints) order(ascending);
     Caption = 'Rewards Level List', Comment = 'Lista Recompensa Niveles';
     ApplicationArea = All;
     UsageCategory = Lists;
@@ -13,13 +13,13 @@ page 50001 NMRewardsLevelList
         {
             repeater(Group)
             {
-                field(Level; Rec.Level)
+                field(NMLevel; Rec.NMLevel)
                 {
                     ApplicationArea = All;
                     Tooltip = 'Specifies the level of reward that the customer has at this point.';
                 }
 
-                field("Minimum Reward Points"; Rec."Minimum Reward Points")
+                field(NMMinimumRewardPoints; Rec.NMMinimumRewardPoints)
                 {
                     ApplicationArea = All;
                     Tooltip = 'Specifies the number of points that customers must have to reach this level.';
@@ -31,11 +31,11 @@ page 50001 NMRewardsLevelList
     trigger OnOpenPage();
     begin
 
-        if not CustomerRewardsExtMgt.IsCustomerRewardsActivated then
-            Error(NotActivatedTxt);
+        if not NMCustomerRewardsExtMgt.NMIsCustomerRewardsActivated then
+            Error(NMNotActivatedTxt);
     end;
 
     var
-        CustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
-        NotActivatedTxt: Label 'Customer Rewards is not activated';
+        NMCustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
+        NMNotActivatedTxt: Label 'Customer Rewards is not activated', Comment = 'Recompensas Cliente no está activado';
 }

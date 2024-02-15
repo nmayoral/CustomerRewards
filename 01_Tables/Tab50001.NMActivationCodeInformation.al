@@ -4,21 +4,21 @@ table 50001 NMActivationCodeInformation
     DataClassification = SystemMetadata;
     fields
     {
-        field(1; ActivationCode; Text[14])
+        field(1; NMActivationCode; Text[14])
         {
             Caption = 'Activation Code', Comment = 'Código Activación';
             DataClassification = SystemMetadata;
             Description = 'Activation code used to activate Customer Rewards';
         }
 
-        field(2; "Date Activated"; Date)
+        field(2; NMDateActivated; Date)
         {
             Caption = 'Date Activated', Comment = 'Fecha Activación';
             DataClassification = SystemMetadata;
             Description = 'Date Customer Rewards was activated';
         }
 
-        field(3; "Expiration Date"; Date)
+        field(3; NMExpirationDate; Date)
         {
             Caption = 'Expiration Date', Comment = 'Fecha Expiración';
             DataClassification = SystemMetadata;
@@ -28,7 +28,7 @@ table 50001 NMActivationCodeInformation
 
     keys
     {
-        key(PK; ActivationCode)
+        key(PK; NMActivationCode)
         {
             Clustered = true;
         }

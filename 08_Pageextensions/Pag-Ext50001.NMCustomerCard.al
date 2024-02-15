@@ -4,7 +4,7 @@ pageextension 50001 NMCustomerCard extends "Customer Card"
     {
         addafter(Name)
         {
-            field(RewardLevel; RewardLevel)
+            field(NMRewardLevel; NMRewardLevel)
             {
                 ApplicationArea = All;
                 Caption = 'Reward Level', Comment = 'Nivel Recompensa';
@@ -13,7 +13,7 @@ pageextension 50001 NMCustomerCard extends "Customer Card"
                 Editable = false;
             }
 
-            field(RewardPoints; Rec.RewardPoints)
+            field(NMRewardPoints; Rec.NMRewardPoints)
             {
                 ApplicationArea = All;
                 Caption = 'Reward Points', Comment = 'Puntos Recompensa';
@@ -26,12 +26,12 @@ pageextension 50001 NMCustomerCard extends "Customer Card"
 
     trigger OnAfterGetRecord();
     var
-        CustomerRewardsMgtExt: Codeunit NMCustomerRewardsExtMgt;
+        NMCustomerRewardsMgtExt: Codeunit NMCustomerRewardsExtMgt;
     begin
         // Get the reward level associated with reward points - Toma el nivel de recompensa asociado con los puntos de recompensa
-        RewardLevel := CustomerRewardsMgtExt.GetRewardLevel(Rec.RewardPoints);
+        NMRewardLevel := NMCustomerRewardsMgtExt.NMGetRewardLevel(Rec.NMRewardPoints);
     end;
 
     var
-        RewardLevel: Text;
+        NMRewardLevel: Text;
 }

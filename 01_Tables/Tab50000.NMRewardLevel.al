@@ -5,13 +5,13 @@ table 50000 NMRewardLevel
 
     fields
     {
-        field(1; Level; Text[20])
+        field(1; NMLevel; Text[20])
         {
             Caption = 'Level', Comment = 'Nivel';
             DataClassification = CustomerContent;
         }
 
-        field(2; "Minimum Reward Points"; Integer)
+        field(2; NMMinimumRewardPoints; Integer)
         {
             Caption = 'Minimum Reward Points', Comment = 'Puntos mínimos recompensa';
             DataClassification = CustomerContent;
@@ -20,34 +20,35 @@ table 50000 NMRewardLevel
 
             trigger OnValidate();
             var
-                RewardLevel: Record NMRewardLevel;
-                tempPoints: Integer;
+                NMRewardLevel: Record NMRewardLevel;
+                NMtempPoints: Integer;
+                NMMinNotUniqueText: Label 'Minimum Reward Points must be unique', Comment = 'Mínimo Puntos Recompensa debe ser único';
             begin
-                tempPoints := "Minimum Reward Points";
-                RewardLevel.SetRange("Minimum Reward Points", tempPoints);
-                if not RewardLevel.IsEmpty() then
-                    Error('Minimum Reward Points must be unique');
+                NMtempPoints := NMMinimumRewardPoints;
+                NMRewardLevel.SetRange(NMMinimumRewardPoints, NMtempPoints);
+                if not NMRewardLevel.IsEmpty() then
+                    Error(NMMinNotUniqueText);
             end;
         }
     }
 
     keys
     {
-        key(PK; Level)
+        key(PK; NMLevel)
         {
             Clustered = true;
         }
-        key("Minimum Reward Points"; "Minimum Reward Points") { }
+        key("Minimum Reward Points"; NMMinimumRewardPoints) { }
     }
 
     trigger OnInsert();
     begin
 
-        Validate("Minimum Reward Points");
+        Validate(NMMinimumRewardPoints);
     end;
 
     trigger OnModify();
     begin
-        Validate("Minimum Reward Points");
+        Validate(NMMinimumRewardPoints);
     end;
 }

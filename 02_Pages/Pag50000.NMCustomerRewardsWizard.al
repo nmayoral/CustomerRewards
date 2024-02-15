@@ -12,9 +12,9 @@ page 50000 NMCustomerRewardsWizard
             {
                 Caption = '';
                 Editable = false;
-                Visible = TopBannerVisible;
+                Visible = NMTopBannerVisible;
 
-                field("Media Reference"; MediaResourcesStandard."Media Reference")
+                field(NMMediaReference; NMMediaResourcesStandard."Media Reference")
                 {
                     ApplicationArea = All;
                     Editable = false;
@@ -25,20 +25,20 @@ page 50000 NMCustomerRewardsWizard
             group(FirstPage)
             {
                 Caption = '';
-                Visible = FirstPageVisible;
+                Visible = NMFirstPageVisible;
 
-                group("Welcome")
+                group(Welcome)
                 {
                     Caption = 'Welcome', Comment = 'Bienvenido';
-                    Visible = FirstPageVisible;
+                    Visible = NMFirstPageVisible;
 
                     group(Introduction)
                     {
                         Caption = '';
                         InstructionalText = 'This Customer Rewards extension is a sample extension. It adds rewards tiers support for Customers.';
-                        Visible = FirstPageVisible;
+                        Visible = NMFirstPageVisible;
 
-                        field(Spacer1; '')
+                        field(NMSpacer1; '')
                         {
                             ApplicationArea = All;
                             ShowCaption = false;
@@ -47,16 +47,16 @@ page 50000 NMCustomerRewardsWizard
                         }
                     }
 
-                    group("Terms")
+                    group(Terms)
                     {
                         Caption = 'Terms of Use', Comment = 'Términos de Uso';
-                        Visible = FirstPageVisible;
+                        Visible = NMFirstPageVisible;
 
                         group(Terms1)
                         {
                             Caption = '';
                             InstructionalText = 'By enabling the Customer Rewards extension...';
-                            Visible = FirstPageVisible;
+                            Visible = NMFirstPageVisible;
                         }
                     }
 
@@ -64,7 +64,7 @@ page 50000 NMCustomerRewardsWizard
                     {
                         Caption = '';
 
-                        field(EnableFeature; EnableCustomerRewards)
+                        field(NMEnableFeature; NMEnableCustomerRewards)
                         {
                             ApplicationArea = All;
                             MultiLine = true;
@@ -74,7 +74,7 @@ page 50000 NMCustomerRewardsWizard
 
                             trigger OnValidate();
                             begin
-                                ShowFirstPage();
+                                NMShowFirstPage();
                             end;
                         }
                     }
@@ -84,14 +84,14 @@ page 50000 NMCustomerRewardsWizard
             group(SecondPage)
             {
                 Caption = '';
-                Visible = SecondPageVisible;
+                Visible = NMSecondPageVisible;
 
-                group("Activation")
+                group(Activation)
                 {
                     Caption = 'Activation', Comment = 'Activación';
-                    Visible = SecondPageVisible;
+                    Visible = NMSecondPageVisible;
 
-                    field(Spacer2; '')
+                    field(NMSpacer2; '')
                     {
                         ApplicationArea = All;
                         ShowCaption = false;
@@ -103,9 +103,9 @@ page 50000 NMCustomerRewardsWizard
                     {
                         Caption = '';
                         InstructionalText = 'Enter your 14 digit activation code to continue';
-                        Visible = SecondPageVisible;
+                        Visible = NMSecondPageVisible;
 
-                        field(Activationcode; ActivationCode)
+                        field(NMActivationcode; NMActivationCode)
                         {
                             ApplicationArea = All;
                             ShowCaption = false;
@@ -118,18 +118,18 @@ page 50000 NMCustomerRewardsWizard
             group(FinalPage)
             {
                 Caption = '';
-                Visible = FinalPageVisible;
+                Visible = NMFinalPageVisible;
 
-                group("ActivationDone")
+                group(ActivationDone)
                 {
                     Caption = 'You''re done!', Comment = '¡Lo lograste!';
-                    Visible = FinalPageVisible;
+                    Visible = NMFinalPageVisible;
 
                     group(DoneMessage)
                     {
                         Caption = '';
                         InstructionalText = 'Click Finish to set up your rewards level and start using Customer Rewards.';
-                        Visible = FinalPageVisible;
+                        Visible = NMFinalPageVisible;
                     }
                 }
             }
@@ -144,14 +144,14 @@ page 50000 NMCustomerRewardsWizard
             {
                 ApplicationArea = All;
                 Caption = 'Back', Comment = 'Atrás';
-                Enabled = BackEnabled;
-                Visible = BackEnabled;
+                Enabled = NMBackEnabled;
+                Visible = NMBackEnabled;
                 Image = PreviousRecord;
                 InFooterBar = true;
 
                 trigger OnAction();
                 begin
-                    NextStep(true);
+                    NMNextStep(true);
                 end;
             }
 
@@ -159,14 +159,14 @@ page 50000 NMCustomerRewardsWizard
             {
                 ApplicationArea = All;
                 Caption = 'Next', Comment = 'Siguiente';
-                Enabled = NextEnabled;
-                Visible = NextEnabled;
+                Enabled = NMNextEnabled;
+                Visible = NMNextEnabled;
                 Image = NextRecord;
                 InFooterBar = true;
 
                 trigger OnAction();
                 begin
-                    NextStep(false);
+                    NMNextStep(false);
                 end;
             }
 
@@ -174,23 +174,23 @@ page 50000 NMCustomerRewardsWizard
             {
                 ApplicationArea = All;
                 Caption = 'Activate', Comment = 'Activar';
-                Enabled = ActivateEnabled;
-                Visible = ActivateEnabled;
+                Enabled = NMActivateEnabled;
+                Visible = NMActivateEnabled;
                 Image = NextRecord;
                 InFooterBar = true;
 
                 trigger OnAction();
                 var
-                    CustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
+                    NMCustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
                 begin
-                    if ActivationCode = '' then
+                    if NMActivationCode = '' then
                         Error('Activation code cannot be blank.');
 
-                    if Text.StrLen(ActivationCode) <> 14 then
+                    if Text.StrLen(NMActivationCode) <> 14 then
                         Error('Activation code must have 14 digits.');
 
-                    if CustomerRewardsExtMgt.ActivateCustomerRewards(ActivationCode) then
-                        NextStep(false)
+                    if NMCustomerRewardsExtMgt.NMActivateCustomerRewards(NMActivationCode) then
+                        NMNextStep(false)
                     else
                         Error('Activation failed. Please check the activation code you entered.');
                 end;
@@ -200,13 +200,13 @@ page 50000 NMCustomerRewardsWizard
             {
                 ApplicationArea = All;
                 Caption = 'Finish', Comment = 'Finalizar';
-                Enabled = FinalPageVisible;
+                Enabled = NMFinalPageVisible;
                 Image = Approve;
                 InFooterBar = true;
 
                 trigger OnAction();
                 begin
-                    FinishAndEnableCustomerRewards();
+                    NMFinishAndEnableCustomerRewards();
                 end;
             }
         }
@@ -214,112 +214,112 @@ page 50000 NMCustomerRewardsWizard
 
     trigger OnInit();
     begin
-        LoadTopBanners();
+        NMLoadTopBanners();
     end;
 
     trigger OnOpenPage();
     begin
-        Step := Step::First;
-        EnableControls();
+        NMStep := NMStep::First;
+        NMEnableControls();
     end;
 
-    local procedure EnableControls();
+    local procedure NMEnableControls();
     begin
-        ResetControls();
+        NMResetControls();
 
-        case Step of
-            Step::First:
-                ShowFirstPage();
+        case NMStep of
+            NMStep::First:
+                NMShowFirstPage();
 
-            Step::Second:
-                ShowSecondPage();
+            NMStep::Second:
+                NMShowSecondPage();
 
-            Step::Finish:
-                ShowFinalPage();
+            NMStep::Finish:
+                NMShowFinalPage();
         end;
     end;
 
-    local procedure NextStep(Backwards: Boolean);
+    local procedure NMNextStep(NMBackwards: Boolean);
     begin
-        if Backwards then
-            Step := Step - 1
+        if NMBackwards then
+            NMStep := NMStep - 1
         ELSE
-            Step := Step + 1;
-        EnableControls();
+            NMStep := NMStep + 1;
+        NMEnableControls();
     end;
 
-    local procedure FinishAndEnableCustomerRewards();
+    local procedure NMFinishAndEnableCustomerRewards();
     var
-        CustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
-        GuidedExperience: Codeunit "Guided Experience";
-        Info: ModuleInfo;
+        NMCustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
+        NMGuidedExperience: Codeunit "Guided Experience";
+        NMInfo: ModuleInfo;
     begin
-        NavApp.GetCurrentModuleInfo(Info);
-        GuidedExperience.CompleteAssistedSetup(ObjectType::Page, PAGE::NMCustomerRewardsWizard);
+        NavApp.GetCurrentModuleInfo(NMInfo);
+        NMGuidedExperience.CompleteAssistedSetup(ObjectType::Page, PAGE::NMCustomerRewardsWizard);
         CurrPage.Close();
-        CustomerRewardsExtMgt.OpenRewardsLevelPage();
+        NMCustomerRewardsExtMgt.NMOpenRewardsLevelPage();
     end;
 
-    local procedure ShowFirstPage();
+    local procedure NMShowFirstPage();
     begin
-        FirstPageVisible := true;
-        SecondPageVisible := false;
-        FinishEnabled := false;
-        BackEnabled := false;
-        ActivateEnabled := false;
-        NextEnabled := EnableCustomerRewards;
+        NMFirstPageVisible := true;
+        NMSecondPageVisible := false;
+        NMFinishEnabled := false;
+        NMBackEnabled := false;
+        NMActivateEnabled := false;
+        NMNextEnabled := NMEnableCustomerRewards;
     end;
 
-    local procedure ShowSecondPage();
+    local procedure NMShowSecondPage();
     begin
-        FirstPageVisible := false;
-        SecondPageVisible := true;
-        FinishEnabled := false;
-        BackEnabled := true;
-        NextEnabled := false;
-        ActivateEnabled := true;
+        NMFirstPageVisible := false;
+        NMSecondPageVisible := true;
+        NMFinishEnabled := false;
+        NMBackEnabled := true;
+        NMNextEnabled := false;
+        NMActivateEnabled := true;
     end;
 
-    local procedure ShowFinalPage();
+    local procedure NMShowFinalPage();
     begin
-        FinalPageVisible := true;
-        BackEnabled := true;
-        NextEnabled := false;
-        ActivateEnabled := false;
+        NMFinalPageVisible := true;
+        NMBackEnabled := true;
+        NMNextEnabled := false;
+        NMActivateEnabled := false;
     end;
 
-    local procedure ResetControls();
+    local procedure NMResetControls();
     begin
-        FinishEnabled := true;
-        BackEnabled := true;
-        NextEnabled := true;
-        ActivateEnabled := true;
-        FirstPageVisible := false;
-        SecondPageVisible := false;
-        FinalPageVisible := false;
+        NMFinishEnabled := true;
+        NMBackEnabled := true;
+        NMNextEnabled := true;
+        NMActivateEnabled := true;
+        NMFirstPageVisible := false;
+        NMSecondPageVisible := false;
+        NMFinalPageVisible := false;
     end;
 
-    local procedure LoadTopBanners();
+    local procedure NMLoadTopBanners();
     begin
-        if MediaRepositoryStandard.GET('AssistedSetup-NoText-400px.png', FORMAT(CURRENTCLIENTTYPE))
+        if NMMediaRepositoryStandard.GET('AssistedSetup-NoText-400px.png', FORMAT(CURRENTCLIENTTYPE))
       then
-            if MediaResourcesStandard.GET(MediaRepositoryStandard."Media Resources Ref")
+            if NMMediaResourcesStandard.GET(NMMediaRepositoryStandard."Media Resources Ref")
         then
-                TopBannerVisible := MediaResourcesStandard."Media Reference".HASVALUE;
+                NMTopBannerVisible := NMMediaResourcesStandard."Media Reference".HASVALUE;
     end;
 
     var
-        MediaRepositoryStandard: Record "Media Repository";
-        MediaResourcesStandard: Record "Media Resources";
-        Step: Option First,Second,Finish;
-        ActivationCode: Text;
-        TopBannerVisible: Boolean;
-        FirstPageVisible: Boolean;
-        SecondPageVisible: Boolean;
-        FinalPageVisible: Boolean;
-        FinishEnabled: Boolean;
-        BackEnabled: Boolean;
-        NextEnabled: Boolean;
-        ActivateEnabled: Boolean;
-        EnableCustomerRewards: Boolean;
+        NMMediaRepositoryStandard: Record "Media Repository";
+        NMMediaResourcesStandard: Record "Media Resources";
+        NMStep: Option First,Second,Finish;
+        NMActivationCode: Text;
+        NMTopBannerVisible: Boolean;
+        NMFirstPageVisible: Boolean;
+        NMSecondPageVisible: Boolean;
+        NMFinalPageVisible: Boolean;
+        NMFinishEnabled: Boolean;
+        NMBackEnabled: Boolean;
+        NMNextEnabled: Boolean;
+        NMActivateEnabled: Boolean;
+        NMEnableCustomerRewards: Boolean;
 }

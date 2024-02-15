@@ -5,13 +5,13 @@ table 50002 NMCustomerRewardsMgtSetup
 
     fields
     {
-        field(1; "Primary Key"; Code[10])
+        field(1; NMPrimaryKey; Code[10])
         {
             Caption = 'Primary Key', Comment = 'Clave Primaria';
             DataClassification = CustomerContent;
         }
 
-        field(2; "Cust. Rew. Ext. Mgt. Cod. ID"; Integer)
+        field(2; "NMCustRewExtMgtCUID"; Integer)
         {
             Caption = 'Customer Rewards Ext. Mgt. Codeunit ID', Comment = 'ID Codeunit Recompensas Cliente';
             DataClassification = CustomerContent;
@@ -21,7 +21,7 @@ table 50002 NMCustomerRewardsMgtSetup
 
     keys
     {
-        key(PK; "Primary Key")
+        key(PK; NMPrimaryKey)
         {
             Clustered = true;
         }

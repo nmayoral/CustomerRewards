@@ -6,19 +6,19 @@ codeunit 50002 NMCustRewardsAssistedSetup
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Guided Experience", 'OnRegisterAssistedSetup', '', false, false)]
-    local procedure AddExtensionAssistedSetup_OnRegisterAssistedSetup();
+    local procedure NMAddExtensionAssistedSetup_OnRegisterAssistedSetup();
     var
-        GuidedExperience: Codeunit "Guided Experience";
-        CurrentGlobalLanguage: Integer;
-        myAppInfo: ModuleInfo;
-        WizardTxt: Label 'Customer Rewards assisted setup guide';
-        GuidedExperienceType: Enum "Guided Experience Type";
-        VideoCategory: Enum "Video Category";
+        NMGuidedExperience: Codeunit "Guided Experience";
+        NMCurrentGlobalLanguage: Integer;
+        NMMyAppInfo: ModuleInfo;
+        NMWizardTxt: Label 'Customer Rewards assisted setup guide', Comment = 'Guía instalación asistida Recompensas Cliente';
+        NMGuidedExperienceType: Enum "Guided Experience Type";
+        NMVideoCategory: Enum "Video Category";
     begin
-        NavApp.GetCurrentModuleInfo(myAppInfo);
-        CurrentGlobalLanguage := GlobalLanguage();
-        GuidedExperience.InsertAssistedSetup(WizardTxt, WizardTxt, WizardTxt, 5, ObjectType::Page, page::NMCustomerRewardsWizard, "Assisted Setup Group"::Extensions, '', VideoCategory::Uncategorized, '');
+        NavApp.GetCurrentModuleInfo(NMMyAppInfo);
+        NMCurrentGlobalLanguage := GlobalLanguage();
+        NMGuidedExperience.InsertAssistedSetup(NMWizardTxt, NMWizardTxt, NMWizardTxt, 5, ObjectType::Page, page::NMCustomerRewardsWizard, "Assisted Setup Group"::Extensions, '', NMVideoCategory::Uncategorized, '');
         GLOBALLANGUAGE(1033);
-        GuidedExperience.AddTranslationForSetupObjectTitle(GuidedExperienceType::"Assisted Setup", ObjectType::Page, Page::NMCustomerRewardsWizard, CurrentGlobalLanguage, WizardTxt);
+        NMGuidedExperience.AddTranslationForSetupObjectTitle(NMGuidedExperienceType::"Assisted Setup", ObjectType::Page, Page::NMCustomerRewardsWizard, NMCurrentGlobalLanguage, NMWizardTxt);
     end;
 }

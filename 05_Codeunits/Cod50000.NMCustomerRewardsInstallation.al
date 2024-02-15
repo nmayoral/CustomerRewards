@@ -5,28 +5,28 @@ codeunit 50000 NMCustomerRewardsInstallation
 
     trigger OnInstallAppPerCompany();
     var
-        myAppInfo: ModuleInfo;
+        NMMyAppInfo: ModuleInfo;
     begin
-        NavApp.GetCurrentModuleInfo(myAppInfo); // Get info about the currently executing module
+        NavApp.GetCurrentModuleInfo(NMMyAppInfo); // Get info about the currently executing module
 
-        if myAppInfo.DataVersion = Version.Create(0, 0, 0, 0) then // A 'DataVersion' of 0.0.0.0 indicates a 'fresh/new' install
-            HandleFreshInstall()
+        if NMMyAppInfo.DataVersion = Version.Create(0, 0, 0, 0) then // A 'DataVersion' of 0.0.0.0 indicates a 'fresh/new' install
+            NMHandleFreshInstall()
         else
-            HandleReinstall(); // If not a fresh install, then we are Re-installing the same version of the extension
+            NMHandleReinstall(); // If not a fresh install, then we are Re-installing the same version of the extension
     end;
 
-    local procedure HandleFreshInstall();
+    local procedure NMHandleFreshInstall();
     begin
         // Do work needed the first time this extension is ever installed for this tenant.
         // Some possible usages:
         // - Service callback/telemetry indicating that extension was installed
         // - Initial data setup for use
-        SetDefaultCustomerRewardsExtMgtCodeunit();
-        InsertDefaultRewardLevels();
-        InitializeRewardsForExistingCustomers();
+        NMSetDefaultCustomerRewardsExtMgtCodeunit();
+        NMInsertDefaultRewardLevels();
+        NMInitializeRewardsForExistingCustomers();
     end;
 
-    local procedure HandleReinstall();
+    local procedure NMHandleReinstall();
     begin
         // Do work needed when reinstalling the same version of this extension back on this tenant.
         // Some possible usages:
@@ -35,55 +35,55 @@ codeunit 50000 NMCustomerRewardsInstallation
         // - Set up 'welcome back' messaging for next user access.
     end;
 
-    procedure SetDefaultCustomerRewardsExtMgtCodeunit();
+    procedure NMSetDefaultCustomerRewardsExtMgtCodeunit();
     var
-        CustomerRewardsMgtSetup: Record NMCustomerRewardsMgtSetup;
+        NMCustomerRewardsMgtSetup: Record NMCustomerRewardsMgtSetup;
     begin
-        CustomerRewardsMgtSetup.DeleteAll();
-        CustomerRewardsMgtSetup.Init();
+        NMCustomerRewardsMgtSetup.DeleteAll();
+        NMCustomerRewardsMgtSetup.Init();
         // Default Customer Rewards Ext. Mgt codeunit to use for handling events  
-        CustomerRewardsMgtSetup."Cust. Rew. Ext. Mgt. Cod. ID" := Codeunit::NMCustomerRewardsExtMgt;
-        CustomerRewardsMgtSetup.Insert();
+        NMCustomerRewardsMgtSetup."NMCustRewExtMgtCUID" := Codeunit::NMCustomerRewardsExtMgt;
+        NMCustomerRewardsMgtSetup.Insert();
     end;
 
-    procedure InsertDefaultRewardLevels()
+    procedure NMInsertDefaultRewardLevels()
     var
-        RewardLevels: Record NMRewardLevel;
+        NMRewardLevels: Record NMRewardLevel;
     begin
-        Clear(RewardLevels);
-        if not RewardLevels.IsEmpty then
+        Clear(NMRewardLevels);
+        if not NMRewardLevels.IsEmpty then
             exit;
-        InsertRewardLevel('Bronze', 10);
-        InsertRewardLevel('Silver', 20);
-        InsertRewardLevel('Gold', 30);
-        InsertRewardLevel('Platinum', 40);
+        NMInsertRewardLevel('Bronze', 10);
+        NMInsertRewardLevel('Silver', 20);
+        NMInsertRewardLevel('Gold', 30);
+        NMInsertRewardLevel('Platinum', 40);
 
     end;
 
-    local procedure InsertRewardLevel(Level: Text[20]; Points: integer)
+    local procedure NMInsertRewardLevel(NMLevel: Text[20]; NMPoints: integer)
     var
-        RewardLevel: Record NMRewardLevel;
+        NMRewardLevel: Record NMRewardLevel;
     begin
-        Clear(RewardLevel);
-        RewardLevel.Level := Level;
-        RewardLevel."Minimum Reward Points" := Points;
-        RewardLevel.Insert();
+        Clear(NMRewardLevel);
+        NMRewardLevel.NMLevel := NMLevel;
+        NMRewardLevel.NMMinimumRewardPoints := NMPoints;
+        NMRewardLevel.Insert();
     end;
 
-    local procedure InitializeRewardsForExistingCustomers()
+    local procedure NMInitializeRewardsForExistingCustomers()
     var
-        Customer: Record Customer;
-        SalesHeader: Record "Sales Header";
+        NMCustomer: Record Customer;
+        NMSalesHeader: Record "Sales Header";
     begin
-        Clear(SalesHeader);
-        SalesHeader.SetCurrentKey("Sell-to Customer No.");
-        SalesHeader.SetRange(Status, SalesHeader.Status::Released);
-        if SalesHeader.FindSet() then
+        Clear(NMSalesHeader);
+        NMSalesHeader.SetCurrentKey("Sell-to Customer No.");
+        NMSalesHeader.SetRange(Status, NMSalesHeader.Status::Released);
+        if NMSalesHeader.FindSet() then
             repeat
-                if not Customer.Get(SalesHeader."Sell-to Customer No.") then
+                if not NMCustomer.Get(NMSalesHeader."Sell-to Customer No.") then
                     exit;
-                Customer.RewardPoints += 1; // Add a point for each new sales order 
-                Customer.Modify();
-            until SalesHeader.Next() = 0;
+                NMCustomer.NMRewardPoints += 1; // Add a point for each new sales order 
+                NMCustomer.Modify();
+            until NMSalesHeader.Next() = 0;
     end;
 }
