@@ -1,6 +1,6 @@
 table 50001 NMActivationCodeInformation
 {
-    Caption = 'Activation Code Information', Comment = 'Información Activación Código';
+    Caption = 'Activation Code Information', Comment = 'Información Código Activación';
     DataClassification = SystemMetadata;
     fields
     {
@@ -8,21 +8,18 @@ table 50001 NMActivationCodeInformation
         {
             Caption = 'Activation Code', Comment = 'Código Activación';
             DataClassification = SystemMetadata;
-            Description = 'Activation code used to activate Customer Rewards';
         }
 
         field(2; NMDateActivated; Date)
         {
             Caption = 'Date Activated', Comment = 'Fecha Activación';
             DataClassification = SystemMetadata;
-            Description = 'Date Customer Rewards was activated';
         }
 
         field(3; NMExpirationDate; Date)
         {
             Caption = 'Expiration Date', Comment = 'Fecha Expiración';
             DataClassification = SystemMetadata;
-            Description = 'Date Customer Rewards activation expires';
         }
     }
 

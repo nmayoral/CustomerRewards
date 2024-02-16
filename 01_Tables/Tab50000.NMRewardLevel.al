@@ -1,6 +1,6 @@
 table 50000 NMRewardLevel
 {
-    Caption = 'Reward Level', Comment = 'Nivel recompensa';
+    Caption = 'Reward Level', Comment = 'Nivel Recompensa';
     DataClassification = CustomerContent;
 
     fields
@@ -13,7 +13,7 @@ table 50000 NMRewardLevel
 
         field(2; NMMinimumRewardPoints; Integer)
         {
-            Caption = 'Minimum Reward Points', Comment = 'Puntos mínimos recompensa';
+            Caption = 'Minimum Reward Points', Comment = 'Puntos Mínimos Recompensa';
             DataClassification = CustomerContent;
             MinValue = 0;
             NotBlank = true;
@@ -22,7 +22,7 @@ table 50000 NMRewardLevel
             var
                 NMRewardLevel: Record NMRewardLevel;
                 NMtempPoints: Integer;
-                NMMinNotUniqueText: Label 'Minimum Reward Points must be unique', Comment = 'Mínimo Puntos Recompensa debe ser único';
+                NMMinNotUniqueText: Label 'Minimum Reward Points must be unique', Comment = 'Puntos Mínimos Recompensa debe ser único';
             begin
                 NMtempPoints := NMMinimumRewardPoints;
                 NMRewardLevel.SetRange(NMMinimumRewardPoints, NMtempPoints);

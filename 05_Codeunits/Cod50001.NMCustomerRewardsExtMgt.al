@@ -142,5 +142,5 @@ codeunit 50001 NMCustomerRewardsExtMgt
 
     var
         NMDummySuccessResponseTxt: Label '{"ActivationResponse": "Success"}', Locked = true;
-        NMNoRewardlevelTxt: Label 'None', Comment = 'No';
+        NMNoRewardlevelTxt: Label 'None', Comment = 'Nada';
 }

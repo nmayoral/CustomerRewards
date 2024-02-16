@@ -1,8 +1,7 @@
 page 50000 NMCustomerRewardsWizard
 {
-    // Specifies that this page will be a navigate page. 
     PageType = NavigatePage;
-    Caption = 'Customer Rewards assisted setup guide', Comment = 'Guia instalación asistida Recompensas Cliente';
+    Caption = 'Customer Rewards assisted setup guide', Comment = 'Guía instalación asistida Recompensas Cliente';
 
     layout
     {
@@ -35,7 +34,7 @@ page 50000 NMCustomerRewardsWizard
                     group(Introduction)
                     {
                         Caption = '';
-                        InstructionalText = 'This Customer Rewards extension is a sample extension. It adds rewards tiers support for Customers.';
+                        InstructionalText = 'This Customer Rewards extension adds rewards tiers support for Customers', Comment = 'Esta extensión Recompensas Cliente agrega compatibilidad con niveles de recompensas para los Clientes';
                         Visible = NMFirstPageVisible;
 
                         field(NMSpacer1; '')
@@ -55,7 +54,7 @@ page 50000 NMCustomerRewardsWizard
                         group(Terms1)
                         {
                             Caption = '';
-                            InstructionalText = 'By enabling the Customer Rewards extension...';
+                            InstructionalText = 'By enabling the Customer Rewards extension...', Comment = 'Al habilitar la extensión Recompensas Cliente...';
                             Visible = NMFirstPageVisible;
                         }
                     }
@@ -69,8 +68,8 @@ page 50000 NMCustomerRewardsWizard
                             ApplicationArea = All;
                             MultiLine = true;
                             Editable = true;
-                            Caption = 'I understand and accept these terms.', Comment = 'He entendido y acepto estos términos';
-                            ToolTip = 'Click to confirm: I understand and accept these terms.';
+                            Caption = 'I understand and accept these terms', Comment = 'He entendido y acepto estos términos';
+                            ToolTip = 'Click to confirm: I understand and accept these terms', Comment = 'Pincha para confirmar: ';
 
                             trigger OnValidate();
                             begin
@@ -102,7 +101,7 @@ page 50000 NMCustomerRewardsWizard
                     group(ActivationMessage)
                     {
                         Caption = '';
-                        InstructionalText = 'Enter your 14 digit activation code to continue';
+                        InstructionalText = 'Enter your 14 digit activation code to continue', Comment = 'Introduce los 14 dígitos del código de activación para continuar';
                         Visible = NMSecondPageVisible;
 
                         field(NMActivationcode; NMActivationCode)
@@ -122,13 +121,13 @@ page 50000 NMCustomerRewardsWizard
 
                 group(ActivationDone)
                 {
-                    Caption = 'You''re done!', Comment = '¡Lo lograste!';
+                    Caption = 'You are done!', Comment = '¡Lo lograste!';
                     Visible = NMFinalPageVisible;
 
                     group(DoneMessage)
                     {
                         Caption = '';
-                        InstructionalText = 'Click Finish to set up your rewards level and start using Customer Rewards.';
+                        InstructionalText = 'Click Finish to set up your rewards level and start using Customer Rewards', Comment = 'Haga clic en Finalizar para configurar su nivel de recompensas y comenzar a usar Recompensas Cliente';
                         Visible = NMFinalPageVisible;
                     }
                 }
@@ -182,17 +181,20 @@ page 50000 NMCustomerRewardsWizard
                 trigger OnAction();
                 var
                     NMCustomerRewardsExtMgt: Codeunit NMCustomerRewardsExtMgt;
+                    NMActivationCodeIsBlankText: Label 'Activation code cannot be blank', Comment = 'Código Activación no puede estar vacío';
+                    NMActivationCodeNot14Text: Label 'Activation code must have 14 digits', Comment = 'Código Activación debe tener 14 dígitos';
+                    NMActivationCodeFailed: Label 'Activation failed. Please check the activation code you entered', Comment = 'Activación fallida. Por favor, comprueba el Código Activación que has introducido';
                 begin
                     if NMActivationCode = '' then
-                        Error('Activation code cannot be blank.');
+                        Error(NMActivationCodeIsBlankText);
 
                     if Text.StrLen(NMActivationCode) <> 14 then
-                        Error('Activation code must have 14 digits.');
+                        Error(NMActivationCodeNot14Text);
 
                     if NMCustomerRewardsExtMgt.NMActivateCustomerRewards(NMActivationCode) then
                         NMNextStep(false)
                     else
-                        Error('Activation failed. Please check the activation code you entered.');
+                        Error(NMActivationCodeFailed);
                 end;
             }
 

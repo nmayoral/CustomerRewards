@@ -16,13 +16,13 @@ page 50001 NMRewardsLevelList
                 field(NMLevel; Rec.NMLevel)
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies the level of reward that the customer has at this point.';
+                    Tooltip = 'Specifies the level of reward that the customer has at this point', Comment = 'Especifica el nivel de recompensa que el cliente tiene en este punto';
                 }
 
                 field(NMMinimumRewardPoints; Rec.NMMinimumRewardPoints)
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies the number of points that customers must have to reach this level.';
+                    Tooltip = 'Specifies the number of points that customers must have to reach this level', Comment = 'Especifica el número de puntos que el cliente debe alcanzar para este nivel';
                 }
             }
         }

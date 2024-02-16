@@ -11,7 +11,7 @@ table 50002 NMCustomerRewardsMgtSetup
             DataClassification = CustomerContent;
         }
 
-        field(2; "NMCustRewExtMgtCUID"; Integer)
+        field(2; NMCustRewExtMgtCUID; Integer)
         {
             Caption = 'Customer Rewards Ext. Mgt. Codeunit ID', Comment = 'ID Codeunit Recompensas Cliente';
             DataClassification = CustomerContent;

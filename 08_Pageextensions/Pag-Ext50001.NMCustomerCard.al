@@ -8,8 +8,7 @@ pageextension 50001 NMCustomerCard extends "Customer Card"
             {
                 ApplicationArea = All;
                 Caption = 'Reward Level', Comment = 'Nivel Recompensa';
-                Description = 'Reward level of the customer.';
-                ToolTip = 'Specifies the level of reward that the customer has at this point.';
+                ToolTip = 'Specifies the level of reward that the customer has at this point', Comment = 'Especifica el nivel de recompensa que tiene el cliente en este momento';
                 Editable = false;
             }
 
@@ -17,8 +16,7 @@ pageextension 50001 NMCustomerCard extends "Customer Card"
             {
                 ApplicationArea = All;
                 Caption = 'Reward Points', Comment = 'Puntos Recompensa';
-                Description = 'Reward points accrued by customer';
-                ToolTip = 'Specifies the total number of points that the customer has at this point.';
+                ToolTip = 'Specifies the total number of points that the customer has at this point', Comment = 'Especifica el número total de puntos que tiene el cliente en este momento';
                 Editable = false;
             }
         }
